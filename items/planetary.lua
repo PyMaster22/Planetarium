@@ -13,7 +13,6 @@ SMODS.Joker{
 	blueprint_compat=true,
 	perishable_compat=true,
 	rarity="plt_celestial",
-    --pools={["plt_celestial_jokers"]=true},
 	in_pool=function(self,args) return{false,{allow_duplicates=true}} end,
 	cost=0,
 	pos={x=2,y=4},
@@ -22,8 +21,6 @@ SMODS.Joker{
 		return{vars={card.ability.extra.xmult_per}}
 	end,
 	calculate=function(self,card,context)
-		-- WHY TF DO YOU ONLY WORK WITH CRYPTID!?!?!??!?!
-		-- hold on, missing mod setting
 		if context.retrigger_joker_check and not context.retrigger_joker and context.other_card == card then
 			return {
 				message = localize("k_again_ex"),
@@ -31,7 +28,7 @@ SMODS.Joker{
 				card=card
 			}
 		end
-		if(context.joker_main --[[or context.retrigger_joker]])then
+		if(context.joker_main)then
 			local XMult=1
 			for i=1,G.GAME.hands[context.scoring_name].played do
 				XMult=XMult*card.ability.extra.xmult_per

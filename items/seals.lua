@@ -95,13 +95,8 @@ SMODS.Seal{
 	pos={x=6,y=4},
 	badge_colour=HEX("724bcc"),
 	calculate=function(self,card,context)
-		if(context.pre_discard and not context.hook and context.other_card == card)then
-			-- from vremade burnt joker
-			local text, _ = G.FUNCS.get_poker_hand_info(G.hand.highlighted)
-			return {
-				level_up = true,
-				level_up_hand = text
-			}
+		if(context.pre_discard and context.other_card == card)then
+			SMODS.smart_level_up_hand(card,G.FUNCS.get_poker_hand_info(G.hand.highlighted),true,1)
 		end
 	end
 }
