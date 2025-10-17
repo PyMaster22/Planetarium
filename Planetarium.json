@@ -1,0 +1,19 @@
+{
+	"id": "Planetarium",
+	"name": "Planetarium",
+	"display_name": "Planetarium",
+	"author": ["PyMaster22"],
+	"description": "Planets & the like",
+	"prefix": "plt",
+	"main_file": "planetarium.lua",
+	"badge_colour": "708b91",
+	"badge_text_colour": "FFFFFF",
+	"version": "0.1.0",
+	"dependencies": [
+		"Steamodded (>=1.0.0~BETA-0827)"
+	],
+	"conflicts": [
+	],
+	"provides": [
+	]
+}
