@@ -23,4 +23,4 @@ assert(SMODS.load_file("items/seals.lua"))()
 assert(SMODS.load_file("items/spectrals.lua"))()
 --assert(SMODS.load_file("items/green_card.lua"))()
 
---assert(SMODS.load_file("debug_deck.lua"))()
+assert(SMODS.load_file("debug_deck.lua"))()

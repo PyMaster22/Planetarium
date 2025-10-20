@@ -1,5 +1,5 @@
 SMODS.PokerHand{
-	key="plt_royal_flush",
+	key="plt_Royal Flush",
 	mult=10,
 	chips=120,
 	l_mult=6,

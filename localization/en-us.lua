@@ -55,40 +55,101 @@ return{
 			},
 
 			j_plt_aries={
-				name="Aries"
+				name="Aries",
+				text={
+					"Grants the {C:chips}chips{}",
+					"and {C:mult}mult{} of",
+					"{C:attention}#1#{}",
+				}
 			},
 			j_plt_taurus={
-				name="Taurus"
+				name="Taurus",
+				text={
+					"Grants the {C:chips}chips{}",
+					"and {C:mult}mult{} of",
+					"{C:attention}#1#{}",
+				}
 			},
 			j_plt_gemini={
-				name="Gemini"
+				name="Gemini",
+				text={
+					"Grants the {C:chips}chips{}",
+					"and {C:mult}mult{} of",
+					"{C:attention}#1#{}",
+				}
 			},
 			j_plt_cancer={
-				name="Cancer"
+				name="Cancer",
+				text={
+					"Grants the {C:chips}chips{}",
+					"and {C:mult}mult{} of",
+					"{C:attention}#1#{}",
+				}
 			},
 			j_plt_leo={
-				name="Leo"
+				name="Leo",
+				text={
+					"Grants the {C:chips}chips{}",
+					"and {C:mult}mult{} of",
+					"{C:attention}#1#{}",
+				}
 			},
 			j_plt_virgo={
-				name="Virgo"
+				name="Virgo",
+				text={
+					"Grants the {C:chips}chips{}",
+					"and {C:mult}mult{} of",
+					"{C:attention}#1#{}",
+				}
 			},
 			j_plt_libra={
-				name="Libra"
+				name="Libra",
+				text={
+					"Grants the {C:chips}chips{}",
+					"and {C:mult}mult{} of",
+					"{C:attention}#1#{}",
+				}
 			},
 			j_plt_scorpio={
-				name="Scorpio"
+				name="Scorpio",
+				text={
+					"Grants the {C:chips}chips{}",
+					"and {C:mult}mult{} of",
+					"{C:attention}#1#{}",
+				}
 			},
 			j_plt_sagittarius={
-				name="Sagittarius"
+				name="Sagittarius",
+				text={
+					"{C:green}#1# in #2#{} chance to",
+					"create a {X:black,C:white}Negative{} {C:attention}duplicate{}",
+					"of used {C:planet}Planet{} cards",
+					"{C:inactive}(Works once per Planet card){}"
+				}
 			},
 			j_plt_capricorn={
-				name="Capricorn"
+				name="Capricorn",
+				text={
+					"{C:mult}+{C:white,X:mult}X#1#{} Mult for each",
+					"Zodiac {C:attention}Joker{} card",
+                    "{C:inactive}(Currently {C:mult}+{C:white,X:mult}X#2#{C:inactive} Mult)",
+				}
 			},
 			j_plt_aquarius={
-				name="Aquarius"
+				name="Aquarius",
+				text={
+					"Grants the {C:chips}chips{}",
+					"and {C:mult}mult{} of",
+					"{C:attention}#1#{}",
+				}
 			},
 			j_plt_pisces={
-				name="Pisces"
+				name="Pisces",
+				text={
+					"Grants the {C:chips}chips{}",
+					"and {C:mult}mult{} of",
+					"{C:attention}#1#{}",
+				}
 			},
 			
 		},
@@ -233,14 +294,14 @@ return{
 	},
 	misc={
 		poker_hand_descriptions={
-			plt_royal_flush={
+			["plt_Royal Flush"]={
 				"5 cards in a row (consecutive ranks) with",
 				"all cards sharing the same suit and",
 				"all cards being between 10 and Ace"
 			}
 		},
 		poker_hands={
-			plt_royal_flush="Royal Flush",
+			["plt_Royal Flush"]="Royal Flush",
 		},
 		dictionary={
 			k_plt_celestial="Celestial",

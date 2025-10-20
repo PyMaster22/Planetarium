@@ -88,6 +88,7 @@ SMODS.Joker{
 	perishable_compat=true,
 	rarity="plt_celestial",
 	in_pool=function(self,args) return{false,{allow_duplicates=true}} end,
+	pools={["plt_j_celestial"]=true,},
 	cost=0,
 	pos={x=2,y=4},
 	config={extra={xmult_per=1.1}},

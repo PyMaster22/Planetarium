@@ -3,7 +3,7 @@ SMODS.Consumable{
 	set="Planet",
 	cost=3,
 	pos={x=7,y=3},
-	config={hand_type="plt_royal_flush"},
+	config={hand_type="plt_Royal Flush"},
 	loc_vars=function(self,info_queue,card)
 		return{vars={
 			G.GAME.hands[card.ability.hand_type].level,
