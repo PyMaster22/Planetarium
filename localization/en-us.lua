@@ -54,7 +54,45 @@ return{
 					"and every round {C:attention}won{}",
 					"{C:inactive}Also {C:attention}+#1#{C:inactive} consumeable slot{}"
 				}
-			}
+			},
+
+			j_plt_aries={
+				name="Aries"
+			},
+			j_plt_taurus={
+				name="Taurus"
+			},
+			j_plt_gemini={
+				name="Gemini"
+			},
+			j_plt_cancer={
+				name="Cancer"
+			},
+			j_plt_leo={
+				name="Leo"
+			},
+			j_plt_virgo={
+				name="Virgo"
+			},
+			j_plt_libra={
+				name="Libra"
+			},
+			j_plt_scorpio={
+				name="Scorpio"
+			},
+			j_plt_sagittarius={
+				name="Sagittarius"
+			},
+			j_plt_capricorn={
+				name="Capricorn"
+			},
+			j_plt_aquarius={
+				name="Aquarius"
+			},
+			j_plt_pisces={
+				name="Pisces"
+			},
+			
 		},
 		Planet={
 			c_plt_royal_planet={
