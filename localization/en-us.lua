@@ -27,6 +27,15 @@ return{
 					"{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1#)"
 				}
 			},
+			j_plt_rotting={
+				name="Rotting Start",
+				text={
+					"After {C:attention}#1#{} rounds,",
+					"sell this card to {C:attention}Create{}",
+					"a random {X:Legendary,C:white}Legendary {X:planet,C:white}Celestial{} {C:attention}Joker{}",
+					"{C:inactive}(Currently {C:attention}#2#{C:inactive}/#1#)"
+				}
+			},
 			j_plt_hypernova={
 				name="Hypernova",
 				text={
@@ -34,6 +43,16 @@ return{
 					"Retrigger once for every",
 					"time {C:attention}poker hand{} has been",
 					"played this run"
+				}
+			},
+			j_plt_creation={
+				name="Pillars of Creation",
+				text={
+					"{C:attention}Create{} a {C:attention}random {C:planet}Planet{} card",
+					"every hand {C:attention}played{},",
+					"every hand {C:attention}discarded{},",
+					"and every round {C:attention}won{}",
+					"{C:inactive}Also {C:attention}+#1#{C:inactive} consumeable slot{}"
 				}
 			}
 		},
@@ -189,9 +208,11 @@ return{
 		},
 		dictionary={
 			k_plt_celestial="Celestial",
+			k_plt_leg_celestial="Celestial",
 		},
 		labels={
 			plt_celestial="Celestial",
+			plt_leg_celestial="Celestial",
 			plt_navy_seal="Navy Seal",
 			plt_tanzanite_seal="Tanzanite Seal",
 			plt_royal_blue_seal="Royal Blue Seal",
