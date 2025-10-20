@@ -14,7 +14,7 @@ SMODS.Joker{
 	end,
 	calculate=function(self,card,context)
 		if(context.using_consumeable and not context.blueprint and context.consumeable.ability.set=="Planet") then
-			--card.ability.extra.chips=card.ability.extra.chips+card.ability.extra.chips_gain
+			card.ability.extra.chips=card.ability.extra.chips+(card.ability.extra.chips_gain*(context.consumeable.ability.overflow_used_amount or 1))
 			SMODS.scale_card(card,{
 				ref_table=card.ability.extra,
 				ref_value="chips",

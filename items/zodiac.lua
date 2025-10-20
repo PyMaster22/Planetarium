@@ -7,7 +7,7 @@ SMODS.Joker{
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
-	soul_pos={x=1,y=0},
+	soul_pos={x=2,y=0},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
 		return{vars={}}
@@ -27,7 +27,7 @@ SMODS.Joker{
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
-	soul_pos={x=1,y=0},
+	soul_pos={x=3,y=0},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
 		return{vars={}}
@@ -47,7 +47,7 @@ SMODS.Joker{
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
-	soul_pos={x=1,y=0},
+	soul_pos={x=4,y=0},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
 		return{vars={}}
@@ -67,7 +67,7 @@ SMODS.Joker{
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
-	soul_pos={x=1,y=0},
+	soul_pos={x=5,y=0},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
 		return{vars={}}
@@ -87,7 +87,7 @@ SMODS.Joker{
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
-	soul_pos={x=1,y=0},
+	soul_pos={x=6,y=0},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
 		return{vars={}}
@@ -107,7 +107,7 @@ SMODS.Joker{
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
-	soul_pos={x=1,y=0},
+	soul_pos={x=7,y=0},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
 		return{vars={}}
@@ -127,7 +127,7 @@ SMODS.Joker{
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
-	soul_pos={x=1,y=0},
+	soul_pos={x=8,y=0},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
 		return{vars={}}
@@ -147,7 +147,7 @@ SMODS.Joker{
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
-	soul_pos={x=1,y=0},
+	soul_pos={x=9,y=0},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
 		return{vars={}}
@@ -167,7 +167,7 @@ SMODS.Joker{
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
-	soul_pos={x=1,y=0},
+	soul_pos={x=0,y=1},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
 		return{vars={}}
@@ -207,7 +207,7 @@ SMODS.Joker{
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
-	soul_pos={x=1,y=0},
+	soul_pos={x=2,y=1},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
 		return{vars={}}
@@ -227,7 +227,7 @@ SMODS.Joker{
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
-	soul_pos={x=1,y=0},
+	soul_pos={x=3,y=1},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
 		return{vars={}}

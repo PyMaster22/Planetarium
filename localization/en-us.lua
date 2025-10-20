@@ -49,10 +49,8 @@ return{
 				name="Pillars of Creation",
 				text={
 					"{C:attention}Create{} a {C:attention}random {C:planet}Planet{} card",
-					"every hand {C:attention}played{},",
-					"every hand {C:attention}discarded{},",
-					"and every round {C:attention}won{}",
-					"{C:inactive}Also {C:attention}+#1#{C:inactive} consumeable slot{}"
+					"that levels {C:attention}discarded{} hand",
+					"{C:inactive}Also grants {C:attention}+#1#{C:inactive} consumeable slots{}"
 				}
 			},
 
