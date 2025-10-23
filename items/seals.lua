@@ -77,14 +77,14 @@ SMODS.Seal{
 	calculate=function(self,card,context)
 		if(context.main_scoring and context.cardarea==G.play)then
 			if(context.other_consumeable and context.other_consumable.ability.set=="Planet")then
-				card.ability.extra.counted_planets=card.ability.extra.counted_planets+1
+				card.ability.extra.seal.counted_planets=card.ability.seal.extra.counted_planets+1
 			end
 			if(not context.other_consumable)then
-				return{dollars=card.ability.extra.money*card.ability.extra.counted_planets}
+				return{dollars=card.ability.seal.extra.money*card.ability.seal.extra.counted_planets}
 			end
 		end
 		if(context.end_of_round)then
-			card.ability.extra.counted_planets=0
+			card.ability.seal.extra.counted_planets=0
 		end
 	end
 }

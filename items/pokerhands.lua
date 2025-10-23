@@ -1,3 +1,4 @@
+-- I don't think this is proccing when it should, but it works with Pisces so...
 SMODS.PokerHand{
 	key="plt_Royal Flush",
 	mult=10,
@@ -12,6 +13,9 @@ SMODS.PokerHand{
 		{"H_T",true}
 	},
 	evaluate=function(parts,hand)
+		--[[if(parts._straight and parts._flush and parts._highest.key=="Ace")then
+			return{SMODS.merge_lists(parts._straight,parts._flush)}
+		end]]
 		if(not next(parts._straight) or not next(parts._flush)) then return end
 		local royal = true
 		for j = 1, #hand do
@@ -23,16 +27,3 @@ SMODS.PokerHand{
 		end
 	end
 }
-
---[[SMODS.PokerHand{
-	key="plt_empty",
-	mult=1,
-	chips=1,
-	l_mult=1,
-	l_chips=1,
-	visible=false,
-	example={},
-	evaluate=function(parts,hand)
-		return{hand and #hand == 0 and {} or nil}
-	end
-}]]

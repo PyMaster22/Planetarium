@@ -14,9 +14,10 @@ SMODS.Joker{
 	perishable_compat=false,
 	eternal_compat=false,
 	rarity=4,
-	cost=50,
+	cost=20,
 	pos={x=2,y=4},
 	config={extra={rounds=0,rounds_needed=5}},
+	immutable=true,
 	loc_vars=function(self,info_queue,card)
 		return{vars={card.ability.extra.rounds_needed,card.ability.extra.rounds}}
 	end,
@@ -83,7 +84,7 @@ SMODS.Joker{
 						end
 					end
 					if(#_planet)then
-						SMODS.add_card{key=pseudorandom_element(_planet,pseudoseed("plt_creation")),edition="e_negative"}
+						SMODS.add_card{key=pseudorandom_element(_planet,pseudoseed("plt_creation"))}
 					end
 					
 					G.GAME.consumeable_buffer=0

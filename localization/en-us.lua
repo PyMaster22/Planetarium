@@ -28,7 +28,7 @@ return{
 				}
 			},
 			j_plt_rotting={
-				name="Rotting Start",
+				name="Rotting Star",
 				text={
 					"After {C:attention}#1#{} rounds,",
 					"sell this card to {C:attention}Create{}",
@@ -48,7 +48,7 @@ return{
 			j_plt_creation={
 				name="Pillars of Creation",
 				text={
-					"{C:attention}Create{} a {C:attention}random {C:planet}Planet{} card",
+					"{C:attention}Create{} a {C:planet}Planet{} card",
 					"that levels {C:attention}discarded{} hand",
 					"{C:inactive}Also grants {C:attention}+#1#{C:inactive} consumeable slots{}"
 				}
@@ -57,9 +57,9 @@ return{
 			j_plt_aries={
 				name="Aries",
 				text={
-					"Grants the {C:chips}chips{}",
-					"and {C:mult}mult{} of",
-					"{C:attention}#1#{}",
+					"Grants the {C:chips}chips{} and {C:mult}mult{}",
+					"of your {C:attention}most played hand{}",
+					"as {C:chips}+chips{}"
 				}
 			},
 			j_plt_taurus={
@@ -295,9 +295,7 @@ return{
 	misc={
 		poker_hand_descriptions={
 			["plt_Royal Flush"]={
-				"5 cards in a row (consecutive ranks) with",
-				"all cards sharing the same suit and",
-				"all cards being between 10 and Ace"
+				"An Ace high Straight Flush"
 			}
 		},
 		poker_hands={

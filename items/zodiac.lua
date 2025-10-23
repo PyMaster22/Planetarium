@@ -4,6 +4,11 @@ SMODS.ObjectType{
 	default="j_plt_aries",
 }
 
+-- idea,
+-- Cardinal quality -> strong-ish early game (maybe don't even appear after ante 4)
+-- Fixed quality -> well, fixed jokers
+-- Mutable quality -> scaling, or otherwise changing jokers
+
 SMODS.Joker{
 	key="plt_aries",
 	blueprint_compat=true,
@@ -15,15 +20,21 @@ SMODS.Joker{
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
 	soul_pos={x=2,y=0},
-	config={extra={poker_hand="High Card"}},
+	config={extra={}},
 	loc_vars=function(self,info_queue,card)
-		return{vars={localize(card.ability.extra.poker_hand, 'poker_hands')}}
+		return{vars={}}
 	end,
 	calculate=function(self,card,context)
 		if(context.joker_main)then
+			local  _hand, _tally = nil, 0
+			for _, handname in ipairs(G.handlist) do
+                if SMODS.is_poker_hand_visible(handname) and G.GAME.hands[handname].played > _tally then
+                    _hand = handname
+                    _tally = G.GAME.hands[handname].played
+                end
+			end
 			return{
-				chips=G.GAME.hands[card.ability.extra.poker_hand].chips,
-				mult=G.GAME.hands[card.ability.extra.poker_hand].mult
+				chips=G.GAME.hands[_hand].chips+G.GAME.hands[_hand].mult
 			}
 		end
 	end,
@@ -238,18 +249,23 @@ SMODS.Joker{
 	end,
 	calculate=function(self,card,context)
 		if(context.using_consumeable and context.consumeable.ability.set=="Planet" and context.consumeable.ability.plt_sagittarius==nil)then
-			if(SMODS.pseudorandom_probability(card,"plt_sagittarius",1,card.ability.extra.odds))then
-				G.E_MANAGER:add_event(Event({
-					func=function()
-						local cards = copy_card(context.consumeable)
-						cards:add_to_deck()
-						cards.ability.plt_sagittarius=true
-						G.consumeables:emplace(cards)
-						cards:set_edition("e_negative")
-						return(true)
-					end
-				}))
-			end
+			for _=1,(context.consumeable and context.consumeable.ability.overflow_used_amount or 1) do
+                if(SMODS.pseudorandom_probability(card,"plt_sagittarius",1,card.ability.extra.odds))then
+					G.E_MANAGER:add_event(Event({
+						func=function()
+							--error(tprint(context.consumeable))
+							local cards = copy_card(context.consumeable)
+							cards.ability.overflow_used_amount=nil
+							cards.ability.plt_sagittarius=true
+							cards:set_edition("e_negative")
+							cards:add_to_deck()
+							G.consumeables:emplace(cards)
+							return(true)
+						end
+					}))
+				end
+            end
+			
 		end
 	end,
 	add_to_deck=function(self,card,from_debuff) end,
@@ -321,6 +337,8 @@ SMODS.Joker{
 	remove_from_deck=function(self,card,from_debuff) end,
 }
 
+
+-- perhaps something to justify changing the sprite
 SMODS.Joker{
 	key="plt_pisces",
 	blueprint_compat=true,
