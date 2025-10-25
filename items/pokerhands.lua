@@ -13,16 +13,7 @@ SMODS.PokerHand{
 		{"H_T",true}
 	},
 	evaluate=function(parts,hand)
-		--[[if(parts._straight and parts._flush and parts._highest.key=="Ace")then
-			return{SMODS.merge_lists(parts._straight,parts._flush)}
-		end]]
-		if(not next(parts._straight) or not next(parts._flush)) then return end
-		local royal = true
-		for j = 1, #hand do
-			local rank = SMODS.Ranks[hand[j].base.value]
-			royal = royal and (rank.key == 'Ace' or rank.key == '10' or rank.face)
-		end
-		if(royal) then
+		if(next(parts._straight) and next(parts._flush) and next(parts._highest)=="Ace")then
 			return{SMODS.merge_lists(parts._straight,parts._flush)}
 		end
 	end

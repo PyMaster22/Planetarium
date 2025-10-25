@@ -321,20 +321,22 @@ SMODS.Joker{
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
 	soul_pos={x=2,y=1},
-	config={extra={poker_hand="Straight Flush"}},
+	config={extra={slots=1}},
+	immutable=true,
 	loc_vars=function(self,info_queue,card)
-		return{vars={localize(card.ability.extra.poker_hand, 'poker_hands')}}
+		return{vars={card.ability.extra.slots}}
 	end,
 	calculate=function(self,card,context)
-		if(context.joker_main)then
-			return{
-				chips=G.GAME.hands[card.ability.extra.poker_hand].chips,
-				mult=G.GAME.hands[card.ability.extra.poker_hand].mult
-			}
-		end
 	end,
-	add_to_deck=function(self,card,from_debuff) end,
-	remove_from_deck=function(self,card,from_debuff) end,
+	add_to_deck=function(self,card,from_debuff)
+		G.jokers.config.card_limit=G.jokers.config.card_limit+card.ability.extra.slots
+	end,
+	remove_from_deck=function(self,card,from_debuff)
+		G.jokers.config.card_limit=G.jokers.config.card_limit-card.ability.extra.slots
+	end,
+	in_pool=function(self,args)
+		return(true,{allow_duplicates=true})
+	end
 }
 
 

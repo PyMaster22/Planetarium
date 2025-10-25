@@ -132,15 +132,13 @@ return{
 				text={
 					"{C:mult}+{C:white,X:mult}X#1#{} Mult for each",
 					"Zodiac {C:attention}Joker{} card",
-                    "{C:inactive}(Currently {C:mult}+{C:white,X:mult}X#2#{C:inactive} Mult)",
+                    "{C:inactive}(Currently {C:mult}{C:white,X:mult}X#2#{C:inactive} Mult)",
 				}
 			},
 			j_plt_aquarius={
 				name="Aquarius",
 				text={
-					"Grants the {C:chips}chips{}",
-					"and {C:mult}mult{} of",
-					"{C:attention}#1#{}",
+					"{C:dark_edition}+#1#{} Joker Slot"
 				}
 			},
 			j_plt_pisces={

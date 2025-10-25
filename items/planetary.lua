@@ -21,13 +21,13 @@ SMODS.Joker{
 	end,
 	calculate=function(self,card,context)
 		if(context.selling_self and (card.ability.extra.rounds>=card.ability.extra.rounds_needed)) then 
-			if(1>=G.jokers.config.card_limit-#G.jokers.cards) then
+			if(#G.jokers.cards>=G.jokers.config.card_limit+1) then
 				return{
 					message=localize("k_nope_ex"),
 					colour=G.C.YELLOW
 				}
 			end
-			if(pseudorandom(pseudoseed("plt_dying_rotting?"))<1/20)then
+			if(pseudorandom(pseudoseed("plt_dying_rotting?"))<1/20 and 0)then
 				G.E_MANAGER:add_event(Event({
 					trigger="after",
 					delay=0.4,
