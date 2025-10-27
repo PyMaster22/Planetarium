@@ -17,17 +17,17 @@ SMODS.Joker{
 			--card.ability.extra.chips=card.ability.extra.chips+(card.ability.extra.chips_gain*(context.consumeable.ability.overflow_used_amount or 1))
 			for _=1,(context.consumeable and context.consumeable.ability.overflow_used_amount or 1)-1 do
                 SMODS.scale_card(card, {
-                    ref_table = card.ability,
+                    ref_table = card.ability.extra,
                     ref_value = "chips",
                     scalar_value = "chips_gain",
                     scaling_message = {}
                 })
             end
             SMODS.scale_card(card, {
-                ref_table = card.ability,
-                ref_value = "x_mult",
-                scalar_value = "chips",
-                message_key = 'chips_gain'
+                ref_table = card.ability.extra,
+                ref_value = "chips",
+                scalar_value = "chips_gain",
+                scaling_message = {}
             })
 			return {
 				message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips } }

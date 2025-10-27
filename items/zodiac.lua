@@ -205,6 +205,10 @@ SMODS.Joker{
 }
 
 SMODS.Joker{
+	-- When blind is selected, create an enhanced card
+	-- If you have Certificate, create a sealed enhanced card (both create this one card)
+	-- If you have Marble Joker, create a foil stone card (both create this one card)
+	-- If you have both, create a foiled foil stone card (all three create this one card)
 	key="plt_scorpio",
 	blueprint_compat=true,
 	perishable_compat=false,
@@ -215,17 +219,143 @@ SMODS.Joker{
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
 	soul_pos={x=9,y=0},
-	config={extra={poker_hand="Four of a Kind"}},
+	config={extra={}},
 	loc_vars=function(self,info_queue,card)
-		return{vars={localize(card.ability.extra.poker_hand, 'poker_hands')}}
+		if(#SMODS.find_card("certificate") and #SMODS.find_card("marble"))then
+			info_queue[#info_queue+1]=G.P_SEALS.plt_foiled
+			info_queue[#info_queue+1]=G.P_CENTERS.e_foil
+			info_queue[#info_queue+1]=G.P_CENTERS.m_stone
+			return{key="j_plt_scoprio1"}
+		end
+		if(#SMODS.find_card("certificate"))then
+			return{key="j_plt_scorpio2"}
+		end
+		if(#SMODS.find_card("marble"))then
+			info_queue[#info_queue+1]=G.P_CENTERS.e_foil
+			info_queue[#info_queue+1]=G.P_CENTERS.m_stone
+			return{key="j_plt_scorpio3"}
+		end
+		return{key="j_plt_scorpio"}
 	end,
 	calculate=function(self,card,context)
-		if(context.joker_main)then
-			return{
-				chips=G.GAME.hands[card.ability.extra.poker_hand].chips,
-				mult=G.GAME.hands[card.ability.extra.poker_hand].mult
+		-- TODO: Remove effects from marble and certificate if this is had
+		-- from Certificate (Vanilla Remade)
+		if context.first_hand_drawn and not #SMODS.find_card("certificate") and not #SMODS.find_card("marble") then
+			local _card = SMODS.create_card { set = "Base", enhancement = SMODS.poll_enhancement({ guaranteed = true, type_key = 'plt_scorpio' }), area = G.discard }
+            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+            _card.playing_card = G.playing_card
+            table.insert(G.playing_cards, _card)
+
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.hand:emplace(_card)
+                    _card:start_materialize()
+                    G.GAME.blind:debuff_card(_card)
+                    G.hand:sort()
+                    if context.blueprint_card then
+                        context.blueprint_card:juice_up()
+                    else
+                        card:juice_up()
+                    end
+                    SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
+                    save_run()
+                    return true
+                end
+            }))
+
+            return nil, true -- This is for Joker retrigger purposes
+        end
+		if context.first_hand_drawn and #SMODS.find_card("certificate") and not #SMODS.find_card("marble") then
+			local _card=SMODS.create_card{
+				set="Base",
+				seal=SMODS.poll_seal{guaranteed=true,type_key="certificate"},
+				enhancement=SMODS.poll_enhancement{guaranteed=true,type_key="plt_scorpio"},
+				area=G.discard
 			}
-		end
+            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+            _card.playing_card = G.playing_card
+            table.insert(G.playing_cards, _card)
+
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.hand:emplace(_card)
+                    _card:start_materialize()
+                    G.GAME.blind:debuff_card(_card)
+                    G.hand:sort()
+                    if context.blueprint_card then
+                        context.blueprint_card:juice_up()
+                    else
+                        card:juice_up()
+                    end
+                    SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
+                    save_run()
+                    return true
+                end
+            }))
+
+            return nil, true -- This is for Joker retrigger purposes
+        end
+		if context.first_hand_drawn and not #SMODS.find_card("certificate") and #SMODS.find_card("marble") then
+			local _card=SMODS.create_card{
+				set="Base",
+				enhancement="m_stone",
+				edition="e_foil",
+				area=G.discard
+			}
+            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+            _card.playing_card = G.playing_card
+            table.insert(G.playing_cards, _card)
+
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.hand:emplace(_card)
+                    _card:start_materialize()
+                    G.GAME.blind:debuff_card(_card)
+                    G.hand:sort()
+                    if context.blueprint_card then
+                        context.blueprint_card:juice_up()
+                    else
+                        card:juice_up()
+                    end
+                    SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
+                    save_run()
+                    return true
+                end
+            }))
+
+            return nil, true -- This is for Joker retrigger purposes
+        end
+		if context.first_hand_drawn and #SMODS.find_card("certificate") and #SMODS.find_card("marble") then
+			local _card=SMODS.create_card{
+				set="Base",
+				enhancement="m_stone",
+				edition="e_foil",
+				seal="plt_foiled",
+				area=G.discard
+			}
+            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+            _card.playing_card = G.playing_card
+            table.insert(G.playing_cards, _card)
+
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.hand:emplace(_card)
+                    _card:start_materialize()
+                    G.GAME.blind:debuff_card(_card)
+                    G.hand:sort()
+                    if context.blueprint_card then
+                        context.blueprint_card:juice_up()
+                    else
+                        card:juice_up()
+                    end
+                    SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
+                    save_run()
+                    return true
+                end
+            }))
+
+            return nil, true -- This is for Joker retrigger purposes
+        end
 	end,
 	add_to_deck=function(self,card,from_debuff) end,
 	remove_from_deck=function(self,card,from_debuff) end,
@@ -335,7 +465,7 @@ SMODS.Joker{
 		G.jokers.config.card_limit=G.jokers.config.card_limit-card.ability.extra.slots
 	end,
 	in_pool=function(self,args)
-		return(true,{allow_duplicates=true})
+		return{true,{allow_duplicates=true}}
 	end
 }
 

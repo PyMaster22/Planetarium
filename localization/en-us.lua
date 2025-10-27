@@ -113,9 +113,37 @@ return{
 			j_plt_scorpio={
 				name="Scorpio",
 				text={
-					"Grants the {C:chips}chips{}",
-					"and {C:mult}mult{} of",
-					"{C:attention}#1#{}",
+					"When round begins,",
+					"add a random {C:attention}playing{}",
+					"{C:attention}card{} with a random",
+					"{C:attention}enhancement{} to your hand",
+				}
+			},
+			j_plt_scorpio1={
+				name="Scorpio",
+				text={
+					"When round begins,",
+					"add a foiled seal",
+					"foil Stone card",
+					"to your hand",
+				}
+			},
+			j_plt_scorpio2={
+				name="Scorpio",
+				text={
+					"When round begins,",
+					"add a random {C:attention}playing{}",
+					"{C:attention}card{} with a random",
+					"{C:attention}enhancement{} and a",
+					"random {C:attention}seal{} to your hand",
+				}
+			},
+			j_plt_scorpio3={
+				name="Scorpio",
+				text={
+					"When round begins,",
+					"add a foil Stone",
+					"card to your hand",
 				}
 			},
 			j_plt_sagittarius={
@@ -183,8 +211,8 @@ return{
 			plt_tanzanite_seal={
 				name="Tanzanite Seal",
 				text={
-					"Create the {X:black,C:white}Negative{} {C:planet}Planet{} card",
-					"for played {C:attention}poker hand{}",
+					"Create the {C:dark_edition}Negative{} {C:planet}Planet{} card",
+					"of the played {C:attention}poker hand{}",
 					"when this card is {C:attention}retriggered{}"
 				}
 			},
@@ -196,62 +224,15 @@ return{
 					"tray when {C:attention}played and scored{}"
 				}
 			},
-			plt_blurple_seal={
-				name="Blurple Seal",
+			plt_foiled_seal={
+				name="Foiled Seal",
 				text={
-					--[["Creates the {C:planet}Planet{} card",
-					"of the {C:attention}discarded{} hand",
-					"when {C:attention}discarded{}",
-					"{C:inactive}(Must have room){}",]]
-					"Levels up {C:attention}discarded{} hand",
-					"when {C:attention}discarded{}"
+					"{C:chips}+#1#{} chips per card",
+					"in full deck with",
+					"this seal",
+					"{C:inactive}(Currently: {C:chips}+#2#{C:inactive} chips){}"
 				}
-			},
-			plt_ruby_seal={
-				name="Ruby Seal",
-				text={
-					"{C:attention}Retrigger{} adjacent",
-					"cards {C:attention}#1#{} time",
-					"{C:red}WIP{}"
-				}
-			},
-			plt_citrine_seal={
-				name="Citrine Seal",
-				text={
-					"Earn {C:money}$#1#{} when this",
-					"card is {C:attention}retriggered{}",
-				}
-			},
-			plt_amethyst_seal={
-				name="Amethyst Seal",
-				text={
-					"Creates a {X:black,C:white}Negative{} {C:tarot}Tarot{} card",
-					"when this card is {C:attention}retriggered{}",
-				}
-			},
-			plt_platinum_seal={
-				name="Platinum Seal",
-				text={
-					"Earn {C:money}$#1#{} if this",
-					"card is {C:attention}held in hand{}",
-				}
-			},
-			plt_rose_gold_seal={
-				name="Rose Gold Seal",
-				text={
-					"Create a {C:money}Money {C:tarot}Tarot{} card",
-					"when this card is",
-					"{C:attention}played and scored{}",
-					"{C:inactive}(Must have room){}",
-				}
-			},
-			plt_ultramarine_seal={
-				name="Ultramarine Seal",
-				text={
-					"Create a {C:spectral}Spectral{} card if",
-					"this card is {C:attention}held in hand{}"
-				}
-			},
+			}
 		},
 		Spectral={
 			--[[plt_navy_sealer={
@@ -309,13 +290,7 @@ return{
 			plt_navy_seal="Navy Seal",
 			plt_tanzanite_seal="Tanzanite Seal",
 			plt_royal_blue_seal="Royal Blue Seal",
-			plt_blurple_seal="Blurple Seal",
-			plt_ruby_seal="Ruby Seal",
-			plt_citrine_seal="Citrine Seal",
-			plt_amethyst_seal="Amethyst Seal",
-			plt_platinum_seal="Platinum Seal",
-			plt_rose_gold_seal="Rose Gold Seal",
-			plt_ultramarine_seal="Ultramarine Seal",
+			plt_foiled_seal="Foiled Seal",
 		}
 	}
 }
