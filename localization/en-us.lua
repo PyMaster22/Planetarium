@@ -119,7 +119,7 @@ return{
 					"{C:attention}enhancement{} to your hand",
 				}
 			},
-			j_plt_scorpio1={
+			j_plt_scorpio_both={
 				name="Scorpio",
 				text={
 					"When round begins,",
@@ -128,7 +128,7 @@ return{
 					"to your hand",
 				}
 			},
-			j_plt_scorpio2={
+			j_plt_scorpio_cert={
 				name="Scorpio",
 				text={
 					"When round begins,",
@@ -138,7 +138,7 @@ return{
 					"random {C:attention}seal{} to your hand",
 				}
 			},
-			j_plt_scorpio3={
+			j_plt_scorpio_marble={
 				name="Scorpio",
 				text={
 					"When round begins,",

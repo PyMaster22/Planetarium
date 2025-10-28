@@ -96,7 +96,7 @@ SMODS.Seal{
 	badge_colour=HEX("b5c4c4"),
 	loc_vars=function(self,info_queue,card)
 		local foiled_tally=0
-        for _, playing_card in ipairs(G.playing_cards) do
+        for _, playing_card in ipairs(G.playing_cards or {}) do
             if(playing_card.seal=="plt_foiled")then
 				foiled_tally=foiled_tally+1
 			end

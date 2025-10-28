@@ -8,7 +8,7 @@ SMODS.Back{
             delay = 0.4,
             func = function()
                 play_sound('timpani')
-                local _cards={"j_plt_scorpio","j_marble","j_certificate"}
+                local _cards={"j_plt_scorpio","j_marble","j_marble","j_certificate"}
                 for i=1,#_cards do
                     SMODS.add_card({key=_cards[i]})
                     --[[local card=SMODS.create_card({set='Joker',key="j_plt_hypernova"})

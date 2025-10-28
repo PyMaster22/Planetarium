@@ -15,6 +15,8 @@ SMODS.Atlas{
     path="jokers.png",
 }
 
+assert(SMODS.load_file("lib/overrides.lua"))()
+
 assert(SMODS.load_file("items/jokers.lua"))()
 assert(SMODS.load_file("items/zodiac.lua"))()
 assert(SMODS.load_file("items/pokerhands.lua"))()
