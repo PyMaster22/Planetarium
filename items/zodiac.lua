@@ -221,60 +221,16 @@ SMODS.Joker{
 	soul_pos={x=9,y=0},
 	config={extra={}},
 	loc_vars=function(self,info_queue,card)
-		if(#SMODS.find_card("j_marble")>=1)then
-			if(#SMODS.find_card("j_certificate")>=1)then
-				info_queue[#info_queue+1]=G.P_SEALS.plt_foiled
-			end
-			info_queue[#info_queue+1]=G.P_CENTERS.e_foil
-			info_queue[#info_queue+1]=G.P_CENTERS.m_stone
-		end
-		if(#SMODS.find_card("j_certificate")>=1)then
-			if(#SMODS.find_card("j_marble")>=1)then
-				return{key="j_plt_scorpio_both"}
-			end
-			return{key="j_plt_scorpio_cert"}
-		elseif(#SMODS.find_card("j_marble")>=1)then
-			return{key="j_plt_scorpio_marble"}
-		end
-		return{key="j_plt_scorpio"}
 	end,
 	calculate=function(self,card,context)
-		-- TODO: Add compatability with multiples of all three jokers
-		-- ex: 1 scorpio, 2 marble, 1 certificate -> 1 merged effect, 1 marble effect
-		-- ex: 2 scorpio, 2 marble, 3 certificate -> 2 merged, 1 cert
-		-- ex: 3 scorpio, 1 marble, 3 certificate -> 1 merged, 2 scorpio+cert
+		
 		-- from Certificate (Vanilla Remade)
 		if(context.first_hand_drawn)then
-			local _card
-			if(#SMODS.find_card("j_certificate")>=1 and #SMODS.find_card("j_marble")>=1)then
-				_card=SMODS.create_card{
-					set="Base",
-					enhancement="m_stone",
-					edition="e_foil",
-					seal="plt_foiled",
-					area=G.discard
-				}
-			elseif(#SMODS.find_card("j_certificate")>=1)then
-				_card=SMODS.create_card{
-					set="Base",
-					seal=SMODS.poll_seal{guaranteed=true,type_key="certificate"},
-					enhancement=SMODS.poll_enhancement{guaranteed=true,type_key="plt_scorpio"},
-					area=G.discard
-				}
-			elseif(#SMODS.find_card("j_marble")>=1)then
-				_card=SMODS.create_card{
-					set="Base",
-					enhancement="m_stone",
-					edition="e_foil",
-					area=G.discard
-				}
-			else
-				_card=SMODS.create_card{
-					set="Base",
-					enhancement=SMODS.poll_enhancement({guaranteed=true,type_key="plt_scorpio"}),
-					area=G.discard
-				}
-			end
+			local _card=SMODS.create_card{
+				set="Base",
+				enhancement=SMODS.poll_enhancement({guaranteed=true,type_key="plt_scorpio"}),
+				area=G.discard
+			}
 			G.playing_card = (G.playing_card and G.playing_card + 1) or 1
             _card.playing_card = G.playing_card
             table.insert(G.playing_cards, _card)

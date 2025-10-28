@@ -119,33 +119,6 @@ return{
 					"{C:attention}enhancement{} to your hand",
 				}
 			},
-			j_plt_scorpio_both={
-				name="Scorpio",
-				text={
-					"When round begins,",
-					"add a foiled seal",
-					"foil Stone card",
-					"to your hand",
-				}
-			},
-			j_plt_scorpio_cert={
-				name="Scorpio",
-				text={
-					"When round begins,",
-					"add a random {C:attention}playing{}",
-					"{C:attention}card{} with a random",
-					"{C:attention}enhancement{} and a",
-					"random {C:attention}seal{} to your hand",
-				}
-			},
-			j_plt_scorpio_marble={
-				name="Scorpio",
-				text={
-					"When round begins,",
-					"add a foil Stone",
-					"card to your hand",
-				}
-			},
 			j_plt_sagittarius={
 				name="Sagittarius",
 				text={
