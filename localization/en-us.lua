@@ -57,9 +57,11 @@ return{
 			j_plt_aries={
 				name="Aries",
 				text={
-					"Grants the {C:chips}chips{} and {C:mult}mult{}",
-					"of your {C:attention}most played hand{}",
-					"as {C:chips}+chips{}"
+					"When {C:attention}Blind{} is selected,",
+					"{C:red}destroy{} one random {C:attention}playing{}",
+					"{C:attention}card{} in your deck and add",
+					"its {C:chips}chips{} to this card",
+					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} chips){}"
 				}
 			},
 			j_plt_taurus={

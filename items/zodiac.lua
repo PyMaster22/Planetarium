@@ -13,29 +13,36 @@ SMODS.Joker{
 	key="plt_aries",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
 	atlas="plt_j_atlas",
 	pos={x=0,y=0},
 	soul_pos={x=2,y=0},
-	config={extra={}},
+	config={extra={chips=0}},
 	loc_vars=function(self,info_queue,card)
-		return{vars={}}
+		return{vars={card.ability.extra.chips}}
 	end,
 	calculate=function(self,card,context)
-		if(context.joker_main)then
-			local  _hand, _tally = nil, 0
-			for _, handname in ipairs(G.handlist) do
-                if SMODS.is_poker_hand_visible(handname) and G.GAME.hands[handname].played > _tally then
-                    _hand = handname
-                    _tally = G.GAME.hands[handname].played
-                end
-			end
+		if(context.setting_blind)then
+			-- TODO: Animation
+			-- 1. Move card to playfield
+			-- 2. Flip over and juice
+			-- 3. Dissolve and scale
+			local _index=math.floor(pseudorandom(pseudoseed("j_plt_aries"))*#G.playing_cards)
+			local _card=G.playing_cards[_index]
+			card.ability.extra.chips=
+				card.ability.extra.chips +
+				(_card.base.nominal + _card.ability.bonus + (_card.ability.perma_bonus or 0))
+			_card:start_dissolve()
+			SMODS.destroy_cards(_card)
 			return{
-				chips=G.GAME.hands[_hand].chips+G.GAME.hands[_hand].mult
+				message=localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips } }
 			}
+		end
+		if(context.joker_main)then
+			return{chips=card.ability.extra.chips}
 		end
 	end,
 	add_to_deck=function(self,card,from_debuff) end,
@@ -46,7 +53,7 @@ SMODS.Joker{
 	key="plt_taurus",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
@@ -73,7 +80,7 @@ SMODS.Joker{
 	key="plt_gemini",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
@@ -100,7 +107,7 @@ SMODS.Joker{
 	key="plt_cancer",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
@@ -127,7 +134,7 @@ SMODS.Joker{
 	key="plt_leo",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
@@ -154,7 +161,7 @@ SMODS.Joker{
 	key="plt_virgo",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
@@ -181,7 +188,7 @@ SMODS.Joker{
 	key="plt_libra",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
@@ -212,7 +219,7 @@ SMODS.Joker{
 	key="plt_scorpio",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
@@ -263,7 +270,7 @@ SMODS.Joker{
 	key="plt_sagittarius",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
@@ -304,7 +311,7 @@ SMODS.Joker{
 	key="plt_capricorn",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
@@ -342,7 +349,7 @@ SMODS.Joker{
 	key="plt_aquarius",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
@@ -373,7 +380,7 @@ SMODS.Joker{
 	key="plt_pisces",
 	blueprint_compat=true,
 	perishable_compat=false,
-	eternal_compat=false,
+	eternal_compat=true,
 	pools={["plt_j_zodiac"]=true,},
 	rarity=1,
 	cost=2,
